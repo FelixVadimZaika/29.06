@@ -1,0 +1,96 @@
+﻿#include <iostream>
+using namespace std;
+
+class Shooter{
+public:
+	string luk;
+	int strela = 0;
+	int kamen = 0;
+
+	void shoot() {
+		if (strela > 0) {
+			--strela;
+		}
+		else
+			cout << "Non strel " << luk << endl;
+	}
+
+	void set(int date_strela) {
+		
+		strela = date_strela;
+	}
+	void get() {
+		cout <<"Strel: "<< strela << endl<< endl;
+	}
+	void killArc() {
+		strela-- ;
+	}
+};
+
+class Archer : Shooter {
+public:
+	void shoot() {
+		
+		Shooter::shoot();
+	}
+	void massag() {
+		cout << "(Archer) Kill enemy\n";
+	}
+	
+};
+
+class Fortress : Archer,Rage {
+public:
+	void shootArcher() {
+		Archer::shoot();
+
+	}
+
+};
+
+class Rage : Shooter {
+public:
+	void shoorRanger() {
+		Rage::shoot();
+	}
+
+	void massag() {
+		cout << "(Rage) Kill enemy\n";
+	}
+};
+
+class Catapult : public Shooter {
+public:
+	void massag() {
+		cout << "(Catapult) Kill enemy\n";
+	}
+};
+
+class ArcherTower {
+
+};
+
+
+int main() {
+	 
+	Fortress fort;
+	Shooter sht;
+	Archer arc;
+	Rage rg;
+	Catapult cat;
+	
+
+	
+
+
+
+
+	/*int menu;
+	cin >> menu;
+	switch (menu) {
+	case 1: {
+		cout << "" << endl;
+	}break;
+	}*/
+	return NULL;
+}
